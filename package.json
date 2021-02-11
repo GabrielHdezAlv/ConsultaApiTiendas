@@ -1,0 +1,22 @@
+{
+  "name": "consultando_api_tiendas-hernandezgabriel",
+  "version": "1.0.0",
+  "description": "Actividad en la que consultamos la api tiendas",
+  "main": "./js/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielHdezAlv/ConsultaApiTiendas.git"
+  },
+  "author": "Gabriel Hernandez Alvarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielHdezAlv/ConsultaApiTiendas/issues"
+  },
+  "homepage": "https://github.com/GabrielHdezAlv/ConsultaApiTiendas#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
