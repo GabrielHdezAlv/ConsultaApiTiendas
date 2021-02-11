@@ -1,3 +1,6 @@
+$bgColor: green;
+$txtColor: whitesmoke;
+
 *{
   box-sizing: border-box;
 }
@@ -10,9 +13,9 @@ html, body{
 header{
   display: flex;
   justify-content: center;
-  background-color: purple;
-}
+  background-color: $bgColor;
 
-header h1{
-  color: whitesmoke
+  h1{
+    color: $txtColor;
+  }
 }

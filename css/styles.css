@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  margin: 0px;
+  height: 100%; }
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: green; }
+  header h1 {
+    color: whitesmoke; }
