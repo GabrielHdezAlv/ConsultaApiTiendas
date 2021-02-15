@@ -1,21 +1,199 @@
-$bgColor: green;
-$txtColor: whitesmoke;
+$bgColor: rgb(2, 47, 2);
+$txtColor: goldenrod;
+$btnColor: lightgreen;
+// $colorT: #b4ecb4;
+$txtsColor: rgb(1, 87, 1);
 
-*{
+* {
   box-sizing: border-box;
 }
 
-html, body{
+html,
+body,
+main,
+#loader {
   margin: 0px;
   height: 100%;
 }
 
-header{
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
   display: flex;
   justify-content: center;
   background-color: $bgColor;
 
-  h1{
+  h1 {
     color: $txtColor;
   }
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+
+  h2 {
+    color: $txtsColor;
+  }
+
+  button {
+    margin: 5px;
+    width: 6cm;
+    border-radius: 6px;
+    background-color: $btnColor;
+    font-size: 20px;
+
+    &:hover {
+      background-color: lighten($btnColor, 10%);
+    }
+
+    &:active {
+      outline-style: none;
+      background-color: darken($btnColor, 45%);
+      color: lighten($btnColor, 100%);
+    }
+  }
+}
+
+// PANTALLA LOADER
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 130px;
+    animation: rotation 1s infinite linear;
+  }
+}
+
+// PANTALLA CONSULTA
+#consulta {
+  margin-left: 2.5cm;
+  margin-right: 2.5cm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  #btnAddTienda {
+    border: none;
+    color: $txtsColor;
+  }
+
+  input {
+    height: 30px;
+  }
+
+  #btnBuscar {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    border: 1px solid green;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+#divAddTienda {
+  height: 0px;
+  transition: all 2s;
+  overflow: hidden;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  h2 {
+    color: green;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  form>div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 8cm;
+      border-radius: 4px;
+    }
+  }
+
+  #divPushTienda {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+#divDatos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divTiendas {
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  height: 200px;
+  margin: 1cm;
+  border: 2px solid $txtsColor;
+
+  h1 {
+    color: $txtsColor;
+  }
+}
+
+#btnPushTienda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 15px;
+  background-color: $btnColor;
+  color: $bgColor;
+  padding: 3px;
+}
+
+#loaderPush {
+  animation: rotation 0.5s infinite linear;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+}
+
+.msgErrores {
+  color: red;
 }

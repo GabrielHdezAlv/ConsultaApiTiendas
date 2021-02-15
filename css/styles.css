@@ -1,13 +1,141 @@
 * {
   box-sizing: border-box; }
 
-html, body {
+html,
+body,
+main,
+#loader {
   margin: 0px;
   height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column; }
 
 header {
   display: flex;
   justify-content: center;
-  background-color: green; }
+  background-color: #022f02; }
   header h1 {
-    color: whitesmoke; }
+    color: goldenrod; }
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black; }
+  main h2 {
+    color: #015701; }
+  main button {
+    margin: 5px;
+    width: 6cm;
+    border-radius: 6px;
+    background-color: lightgreen;
+    font-size: 20px; }
+    main button:hover {
+      background-color: #bcf5bc; }
+    main button:active {
+      outline-style: none;
+      background-color: #148414;
+      color: white; }
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #loader img {
+    width: 130px;
+    animation: rotation 1s infinite linear; }
+
+#consulta {
+  margin-left: 2.5cm;
+  margin-right: 2.5cm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+#cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  #cabecera #btnAddTienda {
+    border: none;
+    color: #015701; }
+  #cabecera input {
+    height: 30px; }
+  #cabecera #btnBuscar {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    border: 1px solid green; }
+    #cabecera #btnBuscar img {
+      width: 100%; }
+
+#divAddTienda {
+  height: 0px;
+  transition: all 2s;
+  overflow: hidden;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px; }
+  #divAddTienda h2 {
+    color: green; }
+  #divAddTienda form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+  #divAddTienda form > div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; }
+    #divAddTienda form > div input {
+      width: 8cm;
+      border-radius: 4px; }
+  #divAddTienda #divPushTienda {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end; }
+
+#divDatos {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.divTiendas {
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  height: 200px;
+  margin: 1cm;
+  border: 2px solid #015701; }
+  .divTiendas h1 {
+    color: #015701; }
+
+#btnPushTienda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 15px;
+  background-color: lightgreen;
+  color: #022f02;
+  padding: 3px; }
+
+#loaderPush {
+  animation: rotation 0.5s infinite linear;
+  width: 15px;
+  height: 15px;
+  margin: 2px; }
+
+.msgErrores {
+  color: red; }

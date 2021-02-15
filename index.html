@@ -11,8 +11,56 @@
 
 <body>
   <header>
-    <h1>Consulta API Tiendas</h1>
+    <h1>Tiendas</h1>
   </header>
+  <main style="display: true">
+    <h2>Elige un método para realizar AJAX:</h2>
+    <button class="btns">XHR</button>
+    <button class="btns">Fetch</button>
+    <button class="btns">jQuery</button>
+  </main>
+  <div id="loader" style="display: none">
+    <img src="./img/loader.png" alt="">
+  </div>
+  <div id="consulta" style="display: none">
+    <div id="cabecera">
+      <h3 id="btnAddTienda">Nueva tienda</h3>
+      <div>
+        <input id="inputGetTienda" type="text" placeholder="ID de tienda">
+        <button id="btnBuscar"><img src="./img/lupa.png" alt=""></button>
+      </div>
+    </div>
+    <div id="divAddTienda">
+      <h2>Nueva Empresa</h2>
+      <form action="">
+        <div>
+          <label for="">Nombre</label>
+          <input class="inptValid" id="inputName" type="text" placeholder="Nombre de la empresa" required>
+          <p class="msgErrores" id="name"></p>
+        </div>
+        <div>
+          <label for="">Dirección</label>
+          <input class="inptValid" type="text" placeholder="Dirección de la empresa" required>
+          <p class="msgErrores" id="direc"></p>
+        </div>
+        <div>
+          <label for="">Localidad</label>
+          <input class="inptValid" type="text" placeholder="Localidad de la empresa" required>
+          <p class="msgErrores" id="local"></p>
+        </div>
+        <div>
+          <label for="">Teléfono</label>
+          <input class="inptValid" type="text" placeholder="Teléfono de la empresa" pattern="^[689][0-9]{8}$" required>
+          <p class="msgErrores" id="telf"></p>
+        </div>
+      </form>
+      <div id="divPushTienda">
+        <button id="btnPushTienda">Añadir Tienda</button>
+      </div>
+    </div>
+    <div id="divDatos"></div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./js/script.js"></script>
 </body>
 
