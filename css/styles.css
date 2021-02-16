@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif; }
 
 html,
 body,
@@ -53,7 +54,7 @@ main {
   align-items: center; }
   #loader img {
     width: 130px;
-    animation: rotation 1s infinite linear; }
+    animation: rotation 1.5s infinite linear; }
 
 #consulta {
   margin-left: 2.5cm;
@@ -81,7 +82,7 @@ main {
 
 #despliegue {
   height: 0px;
-  transition: all 2s;
+  transition: all 0.5s;
   overflow: hidden; }
 
 #divAddTienda {
@@ -121,7 +122,8 @@ main {
   padding: 10px;
   height: 200px;
   margin: 1cm;
-  border: 2px solid #015701; }
+  border: 2px solid #015701;
+  box-shadow: 6px 6px 15px 0.2px grey; }
   .divTiendas h1 {
     color: #015701; }
 
@@ -134,9 +136,14 @@ main {
   background-color: lightgreen;
   color: #022f02;
   padding: 3px; }
+  #btnPushTienda:hover {
+    background-color: #4ad64a; }
+  #btnPushTienda:active {
+    background-color: green;
+    color: white; }
 
 #loaderPush {
-  animation: rotation 0.5s infinite linear;
+  animation: rotation 1.5s infinite linear;
   width: 15px;
   height: 15px;
   margin: 2px; }

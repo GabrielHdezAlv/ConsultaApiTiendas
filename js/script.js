@@ -122,8 +122,6 @@ function mostrarDatos(tiendas) {
 
     divDatos.appendChild(div);
   });
-
-  console.log(tiendas[tiendas.length - 1]);
 }
 
 var btnNewTienda = document.getElementById('btnAddTienda');
@@ -137,7 +135,7 @@ function sowPushTienda() {
   var despliegue = document.getElementById('despliegue');
 
   if ((despliegue.style.height == '0px') | (despliegue.style.height == '')) {
-    despliegue.style.height = "300px";
+    despliegue.style.height = "380px";
     divAddTienda.style.border = '2px solid rgb(1, 87, 1)';
   } else {
     despliegue.style.height = '0px';
@@ -236,8 +234,11 @@ btnPushTienda.addEventListener("click", async () => {
     cargando(btnPushTienda);
     await postTienda(obj);
     cleanDatos();
+    clearForm();
+    document.getElementById("despliegue").style.height = "0px";
     getTiendas(btnSelect);
-    console.log("TERMINADO ");
+  }else{
+    alert("Tiene que poner correctamente todos los campos del formulario");
   }
 });
 
@@ -352,4 +353,18 @@ async function postJquery(obj) {
     dataType: 'json'
     });
     alert("json posted!");
+}
+
+function clearForm() {
+  var inputs = document.getElementsByClassName("inptValid");
+  
+  for (let index = 0; index < inputs.length; index++) {
+    inputs[index].value = "";
+  }
+
+  var btnPush = document.getElementById("btnPushTienda");
+  btnPush.innerHTML = "Añadir Tienda";
+  btnPush.style.backgroundColor = "lightgreen";
+  btnPush.style.color = "rgb(2, 47, 2)";
+  btnPushTienda.disabled = false;
 }
