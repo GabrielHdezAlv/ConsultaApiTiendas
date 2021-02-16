@@ -211,11 +211,15 @@ main {
   }
 }
 
-#loaderPush {
+@mixin loaderStyle {
   animation: rotation 1.5s infinite linear;
   width: 15px;
   height: 15px;
   margin: 2px;
+}
+
+#loaderPush {
+  @include loaderStyle;
 }
 
 .msgErrores {
@@ -223,8 +227,5 @@ main {
 }
 
 #loaderIdTienda {
-  animation: rotation 1.5s infinite linear;
-  width: 12px;
-  height: 12px;
-  margin: 2px;
+  @include loaderStyle;
 }
