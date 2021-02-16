@@ -119,13 +119,15 @@ main {
   }
 }
 
-#divAddTienda {
+#despliegue {
   height: 0px;
   transition: all 2s;
   overflow: hidden;
+}
+
+#divAddTienda {
   border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
 
   h2 {
     color: green;
@@ -141,19 +143,21 @@ main {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+    width: 50%;
+    padding-right: 10px;
 
     input {
-      width: 8cm;
+      width: 100%;
       border-radius: 4px;
     }
   }
+}
 
-  #divPushTienda {
-    margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
+#divPushTienda {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 #divDatos {

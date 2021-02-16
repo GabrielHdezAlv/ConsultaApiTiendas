@@ -79,13 +79,14 @@ main {
     #cabecera #btnBuscar img {
       width: 100%; }
 
-#divAddTienda {
+#despliegue {
   height: 0px;
   transition: all 2s;
-  overflow: hidden;
+  overflow: hidden; }
+
+#divAddTienda {
   border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px; }
+  padding: 10px; }
   #divAddTienda h2 {
     color: green; }
   #divAddTienda form {
@@ -95,15 +96,18 @@ main {
   #divAddTienda form > div {
     margin-top: 10px;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 50%;
+    padding-right: 10px; }
     #divAddTienda form > div input {
-      width: 8cm;
+      width: 100%;
       border-radius: 4px; }
-  #divAddTienda #divPushTienda {
-    margin-top: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end; }
+
+#divPushTienda {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; }
 
 #divDatos {
   display: flex;

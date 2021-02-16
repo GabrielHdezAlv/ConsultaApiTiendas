@@ -1,4 +1,4 @@
-// Hacer un div dentro de otro div
+// Haciendo los post de la información
 var btnSelect;
 
 var btns = document.getElementsByClassName('btns');
@@ -122,6 +122,8 @@ function mostrarDatos(tiendas) {
 
     divDatos.appendChild(div);
   });
+
+  console.log(tiendas[tiendas.length - 1]);
 }
 
 var btnNewTienda = document.getElementById('btnAddTienda');
@@ -132,12 +134,13 @@ btnNewTienda.addEventListener('click', sowPushTienda, true);
  */
 function sowPushTienda() {
   var divAddTienda = document.getElementById('divAddTienda');
+  var despliegue = document.getElementById('despliegue');
 
-  if ((divAddTienda.style.height == '0px') | (divAddTienda.style.height == '')) {
-    divAddTienda.style.height = "225px";
+  if ((despliegue.style.height == '0px') | (despliegue.style.height == '')) {
+    despliegue.style.height = "300px";
     divAddTienda.style.border = '2px solid rgb(1, 87, 1)';
   } else {
-    divAddTienda.style.height = '0px';
+    despliegue.style.height = '0px';
   }
 }
 
@@ -225,10 +228,16 @@ function createNode(nodeValue, nodeClasses, nodeText, nodeId, nodeSrc) {
 
 // Introducir Tienda
 var btnPushTienda = document.getElementById("btnPushTienda");
-btnPushTienda.addEventListener("click", () => {
+btnPushTienda.addEventListener("click", async () => {
   btnPushTienda.style.backgroundColor = "#b4ecb4";
-  cargando(btnPushTienda);
-  // checkForm()
+
+  if (checkForm()){
+    var obj = crearObj();
+    cargando(btnPushTienda);
+    await postTienda(obj);
+    cleanDatos();
+    getTiendas(btnSelect);
+  }
 });
 
 /**
@@ -249,19 +258,97 @@ inputsValidar.forEach(campo => {
 });
 
 function checkInput(campo, msgError) {
-    if(campo.validity.valueMissing){
+  var okey = false;  
+  if(campo.validity.valueMissing){
       msgError.textContent = "Campo obligatorio";
       campo.style = "border: 2px solid red";
 
-    }else{
-      msgError.textContent = "";
-      campo.style = "border: 2px solid green";
-    }
+  }else{
+    msgError.textContent = "";
+    campo.style = "border: 2px solid green";
+    okey = true;
+  }
 
-    if(msgError.id == "telf"){
-      if(campo.validity.patternMismatch){
-        msgError.textContent = "Debe empezar con 6,8,9 y deben ser 9 cifras";
-      campo.style = "border: 2px solid red";
-      }
+  if(msgError.id == "telf"){
+    if(campo.validity.patternMismatch){
+      msgError.textContent = "Debe empezar con 6,8,9 y deben ser 9 cifras";
+    campo.style = "border: 2px solid red";
+    okey = false;
     }
+  }
+  return okey;
+}
+
+function checkForm() {
+  var comprobado = false;
+  var validado = 0;
+  
+
+  inputsValidar.forEach(input => {
+    var msgError = input.parentElement.lastElementChild;
+    if(checkInput(input, msgError)){
+      validado++;
+    }
+  });
+
+  if(validado == 4){
+    comprobado = true;
+  }
+  return comprobado;
+}
+
+function crearObj() {
+  var name = document.getElementById("inputName").value;
+  var direc = document.getElementById("inputDirect").value;
+  var local = document.getElementById("inputLocal").value;
+  var telf = document.getElementById("inputTlf").value;
+
+  var obj  = {
+    nombreTienda: name,
+    direccion: direc,
+    localidad: local,
+    telefono: telf
+  }
+
+  return obj;
+}
+
+async function postTienda(obj) {
+  if (btnSelect == 'XHR') {
+    await postXhr(obj);
+  } else if (btnSelect == 'Fetch') {
+    await postFetch(obj);
+  } else if (btnSelect == 'jQuery') {
+    await postJquery(obj);
+  }
+}
+
+function postXhr(obj) {
+  console.log("ESTOY EN PUSH DE XHR");
+}
+
+async function postFetch(obj) {
+  var url = 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/';
+  
+  await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(obj),
+    headers:{
+      "Content-type": "application/json"
+    }
+  }).then(res => res.json())
+  .catch(error => console.log('Error:', error));
+}
+
+async function postJquery(obj) {
+  console.log("ESTOY EN PUSH DE JQUERY");
+  await $.ajax({
+    type: "POST",
+    url: 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/',
+    dataType: "json",
+    data: obj,
+    success: function(){
+      console.log("ENVIADO");
+    }
+  });
 }
