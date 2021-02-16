@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#cargando">cargando</a></li><li><a href="global.html#cleanDatos">cleanDatos</a></li><li><a href="global.html#createNode">createNode</a></li><li><a href="global.html#getFetch">getFetch</a></li><li><a href="global.html#getJquery">getJquery</a></li><li><a href="global.html#getTienda">getTienda</a></li><li><a href="global.html#getTiendas">getTiendas</a></li><li><a href="global.html#getXhr">getXhr</a></li><li><a href="global.html#inputId">inputId</a></li><li><a href="global.html#letsStart">letsStart</a></li><li><a href="global.html#mostrarDatos">mostrarDatos</a></li><li><a href="global.html#sowPushTienda">sowPushTienda</a></li>
+					<li><a href="global.html#cargando">cargando</a></li><li><a href="global.html#checkForm">checkForm</a></li><li><a href="global.html#checkInput">checkInput</a></li><li><a href="global.html#cleanDatos">cleanDatos</a></li><li><a href="global.html#clearForm">clearForm</a></li><li><a href="global.html#crearObj">crearObj</a></li><li><a href="global.html#createNode">createNode</a></li><li><a href="global.html#getFetch">getFetch</a></li><li><a href="global.html#getJquery">getJquery</a></li><li><a href="global.html#getTienda">getTienda</a></li><li><a href="global.html#getTiendas">getTiendas</a></li><li><a href="global.html#getXhr">getXhr</a></li><li><a href="global.html#inputId">inputId</a></li><li><a href="global.html#letsStart">letsStart</a></li><li><a href="global.html#mostrarDatos">mostrarDatos</a></li><li><a href="global.html#postFetch">postFetch</a></li><li><a href="global.html#postJquery">postJquery</a></li><li><a href="global.html#postTienda">postTienda</a></li><li><a href="global.html#postXhr">postXhr</a></li><li><a href="global.html#sowPostTienda">sowPostTienda</a></li>
 				</ul>
 			</li>
 			
@@ -146,7 +146,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="cargando"><span class="type-signature"></span>cargando(btnPushTienda)</h4>
+    <h4 class="name" id="cargando"><span class="type-signature"></span>cargando(btnPostTienda)</h4>
     
     
 </dt>
@@ -189,7 +189,7 @@
 
         <tr>
             
-                <td class="name"><code>btnPushTienda</code></td>
+                <td class="name"><code>btnPostTienda</code></td>
             
 
             <td class="type">
@@ -206,7 +206,237 @@
 
             
 
-            <td class="description last"><p>Boton para hacer push a la tienda</p></td>
+            <td class="description last"><p>Boton para hacer post a la tienda</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="checkForm"><span class="type-signature"></span>checkForm()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Validamos todos los input a la vez</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="checkInput"><span class="type-signature"></span>checkInput(campo, msgError)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Validamos el input</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>campo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Input que validamos</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msgError</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>etiqueta 'p' en el que mostramos el mensaje de error</p></td>
         </tr>
 
     
@@ -283,6 +513,162 @@
     
     <div class="description">
         <p>Limpiamos el div de los datos de las tiendas</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="clearForm"><span class="type-signature"></span>clearForm()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Volvemos el form a su estado inicial (inputs y button)</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="crearObj"><span class="type-signature"></span>crearObj()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Creamos el objeto a introducir en la base de datos</p>
     </div>
     
 
@@ -584,7 +970,7 @@
 
     
     <div class="description">
-        <p>Nos muestra todas las tiendas utilizando el método de Fetch</p>
+        <p>Nos muestra o todas las tiendas o 1 utilizando el método de Fetch</p>
     </div>
     
 
@@ -662,7 +1048,7 @@
 
     
     <div class="description">
-        <p>Nos muestra todas las tiendas utilizando el método de JQuery</p>
+        <p>Nos muestra o todas las tiendas o 1 utilizando el método de JQuery</p>
     </div>
     
 
@@ -740,7 +1126,7 @@
 
     
     <div class="description">
-        <p>Mostramos la tienda que hemos obtenido según el id</p>
+        <p>Validamos el input del IdTienda</p>
     </div>
     
 
@@ -818,7 +1204,7 @@
 
     
     <div class="description">
-        <p>Nos muestra todas las tiendas</p>
+        <p>Nos muestra todas las tiendas según el botón seleccionado</p>
     </div>
     
 
@@ -946,7 +1332,7 @@
 
     
     <div class="description">
-        <p>Nos muestra todas las tiendas utilizando el método de Xhr</p>
+        <p>Nos muestra o todas las tiendas o 1 utilizando el método de Xhr</p>
     </div>
     
 
@@ -1024,7 +1410,7 @@
 
     
     <div class="description">
-        <p>Limpiamos los datos de las tiendas, extraemos el JSON de la tienda que buscamos y mostramos la tienda por DOM</p>
+        <p>Vaciamos el div de las tiendas, obtenemos y mostramos la tienda</p>
     </div>
     
 
@@ -1280,7 +1666,7 @@
 
     
     <div class="description">
-        <p>Creamos y mostramos los nodos de las tiendas</p>
+        <p>Creamos y mostramos los nodos de la/las tiendas</p>
     </div>
     
 
@@ -1400,7 +1786,519 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="sowPushTienda"><span class="type-signature"></span>sowPushTienda()</h4>
+    <h4 class="name" id="postFetch"><span class="type-signature">&lt;async> </span>postFetch(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Introducimos el objeto en la base de datos con el método Fetch</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Objeto con los datos recogidos de los inputs</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="postJquery"><span class="type-signature">&lt;async> </span>postJquery(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Introducimos el objeto en la base de datos con el método jQuery</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Objeto con los datos recogidos de los inputs</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="postTienda"><span class="type-signature">&lt;async> </span>postTienda(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Según el boton llamamos a un función u otra para hacer el POST</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Oject</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Objeto con los datos recogidos de los inputs</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="postXhr"><span class="type-signature">&lt;async> </span>postXhr(obj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Introducimos el objeto en la base de datos con el método Xhr</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Objeto con los datos recogidos de los inputs</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="sowPostTienda"><span class="type-signature"></span>sowPostTienda()</h4>
     
     
 </dt>
@@ -1524,7 +2422,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on February 16th 2021, 7:53:33 pm
+		on February 16th 2021, 11:17:54 pm
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

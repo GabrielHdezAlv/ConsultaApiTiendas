@@ -79,6 +79,11 @@ main {
     border: 1px solid green; }
     #cabecera #btnBuscar img {
       width: 100%; }
+    #cabecera #btnBuscar:hover {
+      background-color: green;
+      color: white; }
+      #cabecera #btnBuscar:hover img {
+        filter: white; }
 
 #despliegue {
   height: 0px;
@@ -150,3 +155,9 @@ main {
 
 .msgErrores {
   color: red; }
+
+#loaderIdTienda {
+  animation: rotation 1.5s infinite linear;
+  width: 12px;
+  height: 12px;
+  margin: 2px; }

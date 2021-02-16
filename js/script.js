@@ -16,11 +16,14 @@ function letsStart(event) {
   var main = event.target.parentNode;
   main.style.display = 'none';
 
+  var loader = document.getElementById("loader");
+  loader.style.display = "flex";
+
   getTiendas(btnSelect);
 }
 
 /**
- * Nos muestra todas las tiendas
+ * Nos muestra todas las tiendas según el botón seleccionado
  * 
  * @param {String} method Nombre del botón que hemos seleccionado
  */
@@ -28,7 +31,6 @@ async function getTiendas(method) {
   var loader = document.getElementById("loader");
   var consulta = document.getElementById("consulta");
   var datos;
-  loader.style.display = "flex";
   
   if (method == 'XHR') {
     datos = await getXhr();
@@ -44,7 +46,7 @@ async function getTiendas(method) {
 }
 
 /**
- * Nos muestra todas las tiendas utilizando el método de Xhr
+ * Nos muestra o todas las tiendas o 1 utilizando el método de Xhr
  */
 async function getXhr(valor) {
   return await new Promise(function (resolve) {
@@ -64,7 +66,7 @@ async function getXhr(valor) {
 }
 
 /**
- * Nos muestra todas las tiendas utilizando el método de Fetch
+ * Nos muestra o todas las tiendas o 1 utilizando el método de Fetch
  */
 async function getFetch(valor) {
   var link;
@@ -83,7 +85,7 @@ async function getFetch(valor) {
 }
 
 /**
- * Nos muestra todas las tiendas utilizando el método de JQuery
+ * Nos muestra o todas las tiendas o 1 utilizando el método de JQuery
  */
 async function getJquery(valor) {
   var link;
@@ -106,7 +108,7 @@ async function getJquery(valor) {
 }
 
 /**
- * Creamos y mostramos los nodos de las tiendas
+ * Creamos y mostramos los nodos de la/las tiendas
  * @param {Array} tiendas Array de tiendas
  */
 function mostrarDatos(tiendas) {
@@ -125,12 +127,12 @@ function mostrarDatos(tiendas) {
 }
 
 var btnNewTienda = document.getElementById('btnAddTienda');
-btnNewTienda.addEventListener('click', sowPushTienda, true);
+btnNewTienda.addEventListener('click', sowPostTienda, true);
 
 /**
  * Ocultamos/Mostramos el div del formulario para introducir tiendas
  */
-function sowPushTienda() {
+function sowPostTienda() {
   var divAddTienda = document.getElementById('divAddTienda');
   var despliegue = document.getElementById('despliegue');
 
@@ -144,14 +146,38 @@ function sowPushTienda() {
 
 // Buscamos tienda por IdTienda
 var btnBuscarTienda = document.getElementById("btnBuscar");
-btnBuscarTienda.addEventListener("click", getTienda);
+btnBuscarTienda.addEventListener("click", async() => {
+
+  var inputIdTienda = document.getElementById("inputGetTienda");
+  if ((inputIdTienda.value != "") && (parseInt(inputIdTienda.value))){
+    if(btnBuscarTienda.textContent != "X"){
+      btnBuscarTienda.textContent = "";
+      var imgLoaderId = createNode('img', [], "", "loaderIdTienda", "./img/loader.png");
+      btnBuscarTienda.appendChild(imgLoaderId);
+
+      getTienda();
+
+      btnBuscarTienda.textContent = "";
+      btnBuscarTienda.innerHTML = "X";
+    }else{
+      btnBuscarTienda.textContent = "";
+      var lupa = createNode('img', [], "", "", "./img/lupa.png");
+      btnBuscarTienda.appendChild(lupa);
+      inputIdTienda.value = "";
+
+      getTiendas(btnSelect);
+    }
+  }else{
+    alert("Debe introducir un id");
+  }
+});
 
 /**
- * Mostramos la tienda que hemos obtenido según el id
+ * Validamos el input del IdTienda
  */
 function getTienda() {
   var inputTienda = document.getElementById("inputGetTienda").value;
-
+  
   if ((inputTienda != "") & (inputTienda != null)){
     if (parseInt(inputTienda)){
       inputId(inputTienda);
@@ -164,7 +190,7 @@ function getTienda() {
 }
 
 /**
- * Limpiamos los datos de las tiendas, extraemos el JSON de la tienda que buscamos y mostramos la tienda por DOM
+ * Vaciamos el div de las tiendas, obtenemos y mostramos la tienda
  * @param {String} inputTienda Número de la tienda que obtenemos del input
  */
 async function inputId(inputTienda) {
@@ -225,13 +251,13 @@ function createNode(nodeValue, nodeClasses, nodeText, nodeId, nodeSrc) {
 }
 
 // Introducir Tienda
-var btnPushTienda = document.getElementById("btnPushTienda");
-btnPushTienda.addEventListener("click", async () => {
-  btnPushTienda.style.backgroundColor = "#b4ecb4";
+var btnPostTienda = document.getElementById("btnPushTienda");
+btnPostTienda.addEventListener("click", async () => {
+  btnPostTienda.style.backgroundColor = "#b4ecb4";
 
   if (checkForm()){
     var obj = crearObj();
-    cargando(btnPushTienda);
+    cargando(btnPostTienda);
     await postTienda(obj);
     cleanDatos();
     clearForm();
@@ -244,13 +270,13 @@ btnPushTienda.addEventListener("click", async () => {
 
 /**
  * Cambiamos el texto del boton y le ponemos un spinner y "Cargando"
- * @param {*} btnPushTienda Boton para hacer push a la tienda
+ * @param {*} btnPostTienda Boton para hacer post a la tienda
  */
-function cargando(btnPushTienda) {
-  btnPushTienda.textContent = "";
-  btnPushTienda.disabled = true;
-  var imgLoaderPush = createNode('img', [], "", "loaderPush", "./img/loader.png");
-  btnPushTienda.append(imgLoaderPush, "Cargando");
+function cargando(btnPostTienda) {
+  btnPostTienda.textContent = "";
+  btnPostTienda.disabled = true;
+  var imgLoaderPost = createNode('img', [], "", "loaderPush", "./img/loader.png");
+  btnPostTienda.append(imgLoaderPost, "Cargando");
 }
 
 // Validación de los inputs
@@ -260,6 +286,11 @@ inputsValidar.forEach(campo => {
   campo.addEventListener('input', () => checkInput(campo, msgError));
 });
 
+/**
+ * Validamos el input
+ * @param {*} campo Input que validamos
+ * @param {*} msgError etiqueta 'p' en el que mostramos el mensaje de error
+ */
 function checkInput(campo, msgError) {
   var okey = false;  
   if(campo.validity.valueMissing){
@@ -282,6 +313,9 @@ function checkInput(campo, msgError) {
   return okey;
 }
 
+/**
+ * Validamos todos los input a la vez
+ */
 function checkForm() {
   var comprobado = false;
   var validado = 0;
@@ -300,6 +334,9 @@ function checkForm() {
   return comprobado;
 }
 
+/**
+ * Creamos el objeto a introducir en la base de datos
+ */
 function crearObj() {
   var name = document.getElementById("inputName").value;
   var direc = document.getElementById("inputDirect").value;
@@ -316,6 +353,10 @@ function crearObj() {
   return obj;
 }
 
+/**
+ * Según el boton llamamos a un función u otra para hacer el POST
+ * @param {Oject} obj Objeto con los datos recogidos de los inputs
+ */
 async function postTienda(obj) {
   if (btnSelect == 'XHR') {
     await postXhr(obj);
@@ -326,6 +367,10 @@ async function postTienda(obj) {
   }
 }
 
+/**
+ * Introducimos el objeto en la base de datos con el método Xhr
+ * @param {Object} obj Objeto con los datos recogidos de los inputs
+ */
 async function postXhr(obj) {
   var xhrPost = new XMLHttpRequest();
   xhrPost.open("POST", 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/');
@@ -333,6 +378,10 @@ async function postXhr(obj) {
   await xhrPost.send(JSON.stringify(obj));
 }
 
+/**
+ * Introducimos el objeto en la base de datos con el método Fetch
+ * @param {Object} obj Objeto con los datos recogidos de los inputs
+ */
 async function postFetch(obj) {
   await fetch('https://webapp-210130211157.azurewebsites.net/webresources/mitienda/', {
     method: 'POST',
@@ -344,6 +393,10 @@ async function postFetch(obj) {
   .catch(error => console.log('Error:', error));
 }
 
+/**
+ * Introducimos el objeto en la base de datos con el método jQuery
+ * @param {Object} obj Objeto con los datos recogidos de los inputs
+ */
 async function postJquery(obj) {
   await $.ajax({
     url: 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/',
@@ -355,6 +408,9 @@ async function postJquery(obj) {
     alert("json posted!");
 }
 
+/**
+ * Volvemos el form a su estado inicial (inputs y button)
+ */
 function clearForm() {
   var inputs = document.getElementsByClassName("inptValid");
   
@@ -362,9 +418,9 @@ function clearForm() {
     inputs[index].value = "";
   }
 
-  var btnPush = document.getElementById("btnPushTienda");
-  btnPush.innerHTML = "Añadir Tienda";
-  btnPush.style.backgroundColor = "lightgreen";
-  btnPush.style.color = "rgb(2, 47, 2)";
-  btnPushTienda.disabled = false;
+  var btnPost = document.getElementById("btnPushTienda");
+  btnPost.innerHTML = "Añadir Tienda";
+  btnPost.style.backgroundColor = "lightgreen";
+  btnPost.style.color = "rgb(2, 47, 2)";
+  btnPost.disabled = false;
 }
