@@ -237,6 +237,7 @@ btnPushTienda.addEventListener("click", async () => {
     await postTienda(obj);
     cleanDatos();
     getTiendas(btnSelect);
+    console.log("TERMINADO ");
   }
 });
 
@@ -246,6 +247,7 @@ btnPushTienda.addEventListener("click", async () => {
  */
 function cargando(btnPushTienda) {
   btnPushTienda.textContent = "";
+  btnPushTienda.disabled = true;
   var imgLoaderPush = createNode('img', [], "", "loaderPush", "./img/loader.png");
   btnPushTienda.append(imgLoaderPush, "Cargando");
 }
@@ -323,14 +325,15 @@ async function postTienda(obj) {
   }
 }
 
-function postXhr(obj) {
-  console.log("ESTOY EN PUSH DE XHR");
+async function postXhr(obj) {
+  var xhrPost = new XMLHttpRequest();
+  xhrPost.open("POST", 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/');
+  xhrPost.setRequestHeader("Content-Type", "application/json");
+  await xhrPost.send(JSON.stringify(obj));
 }
 
 async function postFetch(obj) {
-  var url = 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/';
-  
-  await fetch(url, {
+  await fetch('https://webapp-210130211157.azurewebsites.net/webresources/mitienda/', {
     method: 'POST',
     body: JSON.stringify(obj),
     headers:{
@@ -341,14 +344,12 @@ async function postFetch(obj) {
 }
 
 async function postJquery(obj) {
-  console.log("ESTOY EN PUSH DE JQUERY");
   await $.ajax({
-    type: "POST",
     url: 'https://webapp-210130211157.azurewebsites.net/webresources/mitienda/',
-    dataType: "json",
-    data: obj,
-    success: function(){
-      console.log("ENVIADO");
-    }
-  });
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify(obj),
+    dataType: 'json'
+    });
+    alert("json posted!");
 }
